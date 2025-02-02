@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\ClienteController;
 use App\Http\Controllers\Api\CitaController;
 use App\Http\Controllers\Api\AtencionController;
+use App\Http\Controllers\Api\AuthController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
