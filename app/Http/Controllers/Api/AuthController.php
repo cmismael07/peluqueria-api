@@ -27,22 +27,22 @@ class AuthController extends Controller
     // Inicio de sesión
     public function login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'username' => 'required|string',
-            'password' => 'required|string'
+            'password' => 'required|string',
         ]);
 
-        $usuario = Usuario::where('username', $request->username)->first();
-        if (!$usuario || !Hash::check($request->password, $usuario->password)) {
-            return response()->json(['message' => 'Credenciales incorrectas'], 401);
+        $user = Usuario::where('username', $credentials['username'])->first();
+
+        if (!$user || !Hash::check($credentials['password'], $user->password)) {
+            return response()->json(['message' => 'Credenciales inválidas'], 401);
         }
 
-        // Crear token de acceso
-        $token = $usuario->createToken('api-token')->plainTextToken;
+        // Si usas Sanctum, por ejemplo:
+        $token = $user->createToken('api-token')->plainTextToken;
 
         return response()->json(['token' => $token]);
     }
-
     // Cerrar sesión (revocar token)
     public function logout(Request $request)
     {

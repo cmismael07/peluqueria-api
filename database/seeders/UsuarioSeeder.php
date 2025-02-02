@@ -15,10 +15,16 @@ class UsuarioSeeder extends Seeder
      */
     public function run(): void
     {
+        /*
         Usuario::create([
             'username' => 'admin', 
             'password' => Hash::make('secret123'), // Encripta la contraseña
             // Agrega otros campos necesarios según tu modelo
+        ]);
+        */
+        Usuario::create([
+            'username' => 'isma', 
+            'password' => 'secret1234'
         ]);
     }
 }
