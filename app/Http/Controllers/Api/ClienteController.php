@@ -38,6 +38,7 @@ class ClienteController extends Controller
     public function citas($id)
 {
     $cliente = Cliente::findOrFail($id);
+    $citas = $cliente->citas()->orderBy('fecha', 'desc')->get();
     return response()->json($cliente->citas); // Asumiendo que tienes la relación definida en el modelo
 }
 
