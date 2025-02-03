@@ -14,6 +14,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/clientes', [ClienteController::class, 'index']);
 Route::post('/clientes', [ClienteController::class, 'store']);
 Route::get('/clientes/{cliente}/citas', [ClienteController::class, 'citas']);
+Route::get('/clientes/{cliente}', [ClienteController::class, 'show']);
 Route::post('/citas', [CitaController::class, 'store']);
 Route::get('/atenciones', [AtencionController::class, 'index']);
 Route::post('/atenciones', [AtencionController::class, 'store']);
