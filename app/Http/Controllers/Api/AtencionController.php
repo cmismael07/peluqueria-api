@@ -3,34 +3,43 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Cita;
 use App\Models\Atencion;
-
+use App\Models\Cita;
+use Illuminate\Http\Request;
 
 class AtencionController extends Controller
 {
+    // Método para listar atenciones con información de la cita y del cliente
+    public function index()
+    {
+        $atenciones = Atencion::with('cita.cliente')
+            ->orderBy('fecha_atencion', 'desc')
+            ->get();
+        return response()->json($atenciones);
+    }
+
+    // Método store para crear atención
     public function store(Request $request)
     {
-        $request->validate([
+        // Validar los datos de entrada
+        $validatedData = $request->validate([
             'cita_id'        => 'required|exists:citas,id',
             'descripcion'    => 'required|string',
             'fecha_atencion' => 'required|date'
         ]);
 
-        $atencion = Atencion::create($request->all());
+        // Crear la atención usando los datos validados
+        $atencion = Atencion::create($validatedData);
 
-        // Actualizar el estado de la cita a "atendida"
-        $cita = Cita::find($request->cita_id);
-        $cita->update(['estado' => 'atendida']);
+        // Buscar la cita asociada y actualizar su estado a "atendida"
+        $cita = Cita::find($validatedData['cita_id']);
+        if ($cita) {
+            $cita->update(['estado' => 'atendida']);
+        } else {
+            // Opcional: puedes retornar un error si la cita no se encontró,
+            // pero la validación 'exists' debería garantizar que la cita exista.
+        }
 
         return response()->json($atencion, 201);
-    }
-
-    // Listado de todas las atenciones ordenadas de la más reciente a la más antigua
-    public function index()
-    {
-        $atenciones = Atencion::orderBy('fecha_atencion', 'desc')->get();
-        return response()->json($atenciones);
     }
 }

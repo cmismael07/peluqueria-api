@@ -8,6 +8,20 @@ use App\Models\Cita;
 
 class CitaController extends Controller
 {
+    public function index(Request $request)
+    {
+        $query = Cita::query();
+
+        // Si se envía el parámetro 'estado', filtra por él.
+        if ($request->has('estado')) {
+            $query->where('estado', $request->estado);
+        }
+
+        $citas = $query->get();
+
+        return response()->json($citas);
+    }
+
     // Agendar una nueva cita
     public function store(Request $request)
     {
