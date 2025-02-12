@@ -1,3 +1,20 @@
+## Pasos para la conexión a la base de datos
+1. Descargar e instalar el driver de SQL server para php si aún no se tiene instalado (en caso de tenerlo instalado puede omitir este paso):
+    - Para descargarlo, nos dirigimos a la página de descarga con el siguiente enlace: https://learn.microsoft.com/en-us/sql/connect/php/download-drivers-php-sql-server
+    - Una vez descagado, extraemos el archivo .rar o .zip
+    - Verificamos la versión de php instalada en nuestro Sistema Operativo
+    - Según la versión php que tengamos instalada buscamos los archivos del driver en la carpeta descomprimida que acabamos de descargar, que corresponda a dicha versión. Por ejemplo:
+    Si tenemos instalada la versión 8.1 de php, los archivos que debemos buscar son: php_pdp_sqlsrv_81_ts_x64.dll y el php_sqlsrv_81_ts_x64.dll (puede ser x86, depende de la arquitectura del sistema operativo de nuestro ordenador)
+    - Esos archivos los copiamos, y nos dirigimos a la ruta de nuestro disco local (C:) ya sea en xampp o donde tengamos la carpeta de php y dentro de php, ubicamos la carpeta ext (extensiones) y allí los pegamos.
+    - Regresamos a la carpeta php, buscamos el archivo php.ini y lo abrimos con nuestro editor de texto de preferencia. Una vez ahí, buscamos el apartado de extensiones y agregamos nuestras extenciones de la siguiente manera:
+        extension=php_sqlsrv_81_ts_x64.dll
+        extension=php_pdp_sqlsrv_81_ts_x64.dll
+    - Una vez agregadas las extenciones, guardamos los cambios y reiniciamos el ordenador (opcional)
+
+   2. Configuración SGBD SQL server
+     - Nos dirigimos a https://www.microsoft.com/es-es/sql-server/sql-server-downloads y seleccionamos una edición especializada gratuita. En mi caso les recomiendo la versión developer. Una vez descargado procedemos a instalarlo siguiendo las instrucciones que se presentan en pantalla.
+     -  Una vez instalado sql server, descargamos sql server management studio, instalamos e inicializamos.
+     -  Cuando inicie SSMS (SQL SERVER MANAGEMENT STUDIO) configuramos los parámetros de inicio de sesión como el <strong> tipo de servidor </strong> para el que recomiendo Database Engine, <strong> nombre del servidor </strong>, que podemos dejarlo por defecto, en <strong> autenticación </strong> recomiendo seleccionar el Windows Authentication para facilitar la conexión con laravel. Encryption lo dejamos como mandatory, y seleccionamos el checkbox para trust server certificate 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
