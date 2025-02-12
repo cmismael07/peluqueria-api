@@ -9,13 +9,13 @@
       
     - Según la versión php que tengamos instalada buscamos los archivos del driver en la carpeta descomprimida que acabamos de descargar, que corresponda a dicha versión. Por ejemplo:
       
-    Si tenemos instalada la versión 8.1 de php, los archivos que debemos buscar son: php_pdp_sqlsrv_81_ts_x64.dll y el php_sqlsrv_81_ts_x64.dll (puede ser x86, depende de la arquitectura del sistema operativo de nuestro ordenador)
+    Si tenemos instalada la versión 8.1 de php, los archivos que debemos buscar son: php_pdo_sqlsrv_81_ts_x64.dll y el php_sqlsrv_81_ts_x64.dll (puede ser x86, depende de la arquitectura del sistema operativo de nuestro ordenador)
    
     - Esos archivos los copiamos, y nos dirigimos a la ruta de nuestro disco local (C:) ya sea en xampp o donde tengamos la carpeta de php y dentro de php, ubicamos la carpeta ext (extensiones) y allí los pegamos.
       
     - Regresamos a la carpeta php, buscamos el archivo php.ini y lo abrimos con nuestro editor de texto de preferencia. Una vez ahí, buscamos el apartado de extensiones y agregamos nuestras extenciones de la siguiente manera:
         extension=php_sqlsrv_81_ts_x64.dll
-        extension=php_pdp_sqlsrv_81_ts_x64.dll
+        extension=php_pdo_sqlsrv_81_ts_x64.dll
    
     - Una vez agregadas las extenciones, guardamos los cambios y reiniciamos el ordenador (opcional)
       
