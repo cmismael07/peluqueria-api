@@ -1,5 +1,5 @@
 ## Pasos para la conexión a la base de datos
-1. <h3>Descargar e instalar el driver de SQL server para php si aún no se tiene instalado (en caso de tenerlo instalado puede omitir este paso)</h3>:
+1. <h3>Descargar e instalar el driver de SQL server para php si aún no se tiene instalado (en caso de tenerlo instalado puede omitir este paso)</h3>
 
     - Para descargarlo, nos dirigimos a la página de descarga con el siguiente enlace: https://learn.microsoft.com/en-us/sql/connect/php/download-drivers-php-sql-server
    
