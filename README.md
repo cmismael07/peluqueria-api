@@ -51,7 +51,7 @@
       - La configuración del .env debería quedar algo así:
 
                     DB_CONNECTION=sqlsrv
-                    DB_HOST=localhost o ip máquina
+                    DB_HOST=localhost o ip máquina ej: 192.168.1.15
                     DB_PORT=1433
                     DB_DATABASE=<nombre-base-datos>
                     DB_USERNAME=<login-name-configurado-en-ssms>
