@@ -59,7 +59,7 @@
 
     - Una vez realizada esta configuración probamos nuestra conexión ejecutando las migraciones con el comando php artisan mihgrate en la terminal de la carpeta de nuestro proyecto laravel.
    
-    - Con esto ya tendríamos lista nuestra conexión de laravel con sql server, en caso de que te de error revisa detenidamente alguno de los pasos anteriores y verifica que todo esté configurado correctamente.
+    - Con esto ya tendríamos lista nuestra conexión de laravel con sql server, en caso de que te de error revisa detenidamente alguno de los pasos anteriores.
  
    
      
